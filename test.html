@@ -97,7 +97,6 @@
 
         button {
             height: 50px;
-            display: none;
             background: #01d28e;
             border: 0;
             margin: 30px auto;
@@ -105,20 +104,44 @@
             cursor: pointer;
         }
 
-        button a {
+        button a, button {
             color: #333;
             font-weight: bold;
             text-decoration: none;
             text-transform: uppercase;
         }
 
+        button a {
+            width: 100%;
+            height: 100%;
+        }
+
         button:hover {
             background: none;
+            color: #fff;
             border: 1px solid #fff;
         }
 
         button:hover a {
             color: #fff;
+        }
+
+        .back, .buttons {
+            display: none;
+        }
+
+        .buttons {
+            width: 100%;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .buttons button {
+            margin: 30px 0 0 20px;
+        }
+
+        .info {
+            margin-left: 0;
         }
 
         .loader {
@@ -201,7 +224,11 @@
         <div class="loader">Loading...</div>
         <div class="question"></div>
         <ul class="answer"></ul>
-        <button><a href="index.html">Узнать больше о профессии</a></button>
+        <button class="back">Вернуться к предыдущему вопросу</button>
+        <div class="buttons">
+            <button class="info"><a href="">Узнать больше о профессии</a></button>
+            <button class="home"><a href="index.html">На главную</a></button>
+        </div>
     </div>
 </div>
 
