@@ -51,7 +51,12 @@ window.onload = function(){
                 document.querySelector('.buttons').style.display = 'flex';
                 document.querySelector('.loader').style.display = 'none';
             }, 2000);
+            console.log(answers[key]['description'])
+            console.log(answers[key].url)
+            const user = JSON.parse(localStorage.getItem('user'));
+            localStorage.setItem('user', JSON.stringify({...user, test_result: answers[key]['description'], test_url: answers[key].url}));
         }
+
 
     }
     showQuestion(step);

@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+  <title>Авторизация</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link href="https://fonts.googleapis.com/css?family=Muli:400,700" rel="stylesheet">
+
+  <link rel="stylesheet" href="fonts/icomoon/style.css">
+
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+  <link rel="stylesheet" href="css/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="css/owl.carousel.min.css">
+  <link rel="stylesheet" href="css/owl.theme.default.min.css">
+  <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
+  <link rel="stylesheet" href="css/aos.css">
+  <link rel="shortcut icon" href="/images/madi.png" type="image/png">
+  <!-- MAIN CSS -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    @media screen and (max-width: 500px) {
+      .site-navbar .site-logo {
+        margin: 60px 0 0 0;
+      }
+      .site-logo img {
+        width: 50px;
+        height: 50px;
+        filter: invert(100%);
+      }
+      .site-section-cover h1 {
+        width: 300px;
+        font-size: 18px;
+        text-transform: uppercase;
+        margin-left: auto;
+      }
+      .site-section-cover p {
+        font-size: 14px;
+      }
+    }
+  </style>
+  <script>!function(e,t,a){var c=e.head||e.getElementsByTagName("head")[0],n=e.createElement("script");n.async=!0,n.defer=!0, n.type="text/javascript",n.src=t+"/static/js/widget.js?config="+JSON.stringify(a),c.appendChild(n)}(document,"https://app.engati.com",{bot_key:"875db4b7984a4568",welcome_msg:true,branding_key:"default",server:"https://app.engati.com",e:"p" });</script>
+
+</head>
+
+<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+
+
+<div class="site-wrap" id="home-section">
+
+  <div class="site-mobile-menu site-navbar-target">
+    <div class="site-mobile-menu-header">
+      <div class="site-mobile-menu-close mt-3">
+        <span class="icon-close2 js-menu-toggle"></span>
+      </div>
+    </div>
+    <div class="site-mobile-menu-body"></div>
+  </div>
+
+
+
+  <header class="site-navbar site-navbar-target" role="banner">
+
+    <div class="container">
+      <div class="row align-items-center position-relative">
+
+        <div class="col-3 ">
+          <div class="site-logo">
+            <a href="index.html" class="font-weight-bold"><img src="madi.png" width="128px" height="128px"></a>
+          </div>
+        </div>
+
+        <div class="col-9  text-right">
+
+
+
+
+
+          <nav class="site-navigation text-right ml-auto d-none d-lg-none" role="navigation">
+            <ul class="site-menu main-menu js-clone-nav ml-auto ">
+              <li class="active"><a href="index.html" class="nav-link">Home</a></li>
+              <li><a href="about.html" class="nav-link">About</a></li>
+              <li><a href="work.html" class="nav-link">Work</a></li>
+              <li><a href="journal.html" class="nav-link">Journal</a></li>
+              <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+          </nav>
+        </div>
+
+
+      </div>
+    </div>
+
+  </header>
+
+  <div class="ftco-blocks-cover-1">
+    <div class="site-section-cover overlay" style="background-image: url('images/hero_1.jpg')">
+      <div class="container">
+        <div class="row align-items-center justify-content-center">
+          <div class="col-md-7 text-center">
+            <h1 class="mb-4 text-white">Определение психотипа личности IT-специалиста</h1>
+            <p class="mb-4">Давно хотел связать свою жизнь с IT-сферой, но не знаешь с чего начать? Наш сайт поможет тебе найти верный путь среди многочисленных профессий IT!
+              <br>Мы предлагаем Вам пройти тест, состоящий из вопросов которые определят Ваш психотип личности!
+              <br>После анализа результатов теста Вам будут предложены уроки,которые включают в себя курс,состоящий из теоретических основ и практических заданий
+              <br>Мы поможем Вам выбрать правильный путь</p>
+            <p><a href="test.html" class="btn btn-primary btn-outline-white py-3 px-5">Перейти к тесту</a></p>
+            <p><a href="employment.html" class="btn btn-primary btn-outline-white py-3 px-5">Трудоустройство</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function show(id) {
+      document.getElementById(id).style.display = 'block';
+    }
+
+    function hide(id) {
+      document.getElementById(id).style.display = 'none';
+    }
+
+    function reg() {
+      const login = document.querySelector('#form2 input[type=text]');
+      const password = document.querySelector('#form2 input[type=password]');
+      if(login !== '' && password !== '') {
+        localStorage.setItem('user', JSON.stringify({login: login.value, password: password.value, auth: false}));
+        login.value = '';
+        password.value = '';
+        return;
+      }
+      alert('Не все поля заполнены');
+    }
+
+    function auth() {
+      const login = document.querySelector('#form1 input[type=text]').value;
+      const password = document.querySelector('#form1 input[type=password]').value;
+      const user = JSON.parse(localStorage.getItem('user'));
+      if(login === '' || password === '') {
+        alert('Не все поля заполнены');
+        return;
+      }
+
+      if(login === user.login && password === user.password) {
+        localStorage.setItem('user', JSON.stringify({...user, auth: true}));
+        window.location.href = 'progress.html';
+        return;
+      }
+      alert('Неверный логин или пароль');
+    }
+    // similar behavior as an HTTP redirect
+    // window.location.replace("http://stackoverflow.com");
+
+    // similar behavior as clicking on a link
+    // window.location.href = "index.html";
+
+    // alert('кандок')
+
+  </script>
+
+  <div class="form" id="form1">
+    <form action="#">
+    <h1>Авторизация на сайте</h1>
+
+    <div class="input-form">
+      <input type="text" placeholder="Логин">
+    </div>
+
+    <div class="input-form">
+      <input type="password" placeholder="Пароль">
+    </div>
+
+    <div class="controls">
+      <div class="swap" onclick="show('form2');hide('form1')">Регистрация</div>
+      <input class="btn-reg" type="button" onclick="auth()" value="ВОЙТИ">
+    </div>
+    </form>
+  </div>
+
+  <div class="form" id="form2">
+    <form action="#">
+      <h1>Регистрация на сайте</h1>
+
+      <div class="input-form">
+        <input type="text" placeholder="Логин">
+      </div>
+
+      <div class="input-form">
+        <input type="password" placeholder="Пароль">
+      </div>
+
+      <div class="controls">
+        <div class="swap" onclick="show('form1');hide('form2')">Авторизоваться</div>
+        <input class="btn-reg2" type="button" onclick="reg()" value="РЕГИСТРАЦИЯ">
+      </div>
+    </form>
+  </div>
+
+
+
+
+
+
+
+
+
+  <!-- END .site-section -->
+
+
+
+
+
+
+  <div class="site-section bg-light">
+    <div class="container">
+
+      <div class="row mb-5">
+        <div class="col-md-7 mx-auto text-center">
+          <h2 class="heading-29190">Разработчики</h2>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-4 col-md-6">
+
+          <div>
+            <div class="person-pic-39219 mb-4">
+              <img src="images/person_1.jpg" alt="Image" class="img-fluid">
+            </div>
+
+            <blockquote class="quote_39823">
+              <p>Работа с технологиями разработки  HTML, CSS и JavaScript. </p>
+            </blockquote>
+            <p>&mdash;Катерина Воробьева</p>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+
+
+          <div>
+            <div class="person-pic-39219 mb-4">
+              <img src="images/person_2.jpg" alt="Image" class="img-fluid">
+            </div>
+            <blockquote class="quote_39823">
+              <p>Создание дизайна сайта и аналитика результатов теста.</p>
+            </blockquote>
+            <p>&mdash; Татьяна Середа</p>
+          </div>
+
+        </div>
+        <div class="col-lg-4 col-md-6">
+
+          <div>
+            <div class="person-pic-39219 mb-4">
+              <img src="images/person_3.jpg" alt="Image" class="img-fluid">
+            </div>
+            <blockquote class="quote_39823">
+              <p>Работа с основными технологиями разработки front-end.</p>
+            </blockquote>
+            <p>&mdash; Анастасия Корнева</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+</div>
+
+
+
+</body>
+
+</html>

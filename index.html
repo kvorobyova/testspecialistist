@@ -42,7 +42,7 @@
             }
         }
     </style>
-
+    <script>!function(e,t,a){var c=e.head||e.getElementsByTagName("head")[0],n=e.createElement("script");n.async=!0,n.defer=!0, n.type="text/javascript",n.src=t+"/static/js/widget.js?config="+JSON.stringify(a),c.appendChild(n)}(document,"https://app.engati.com",{bot_key:"875db4b7984a4568",welcome_msg:true,branding_key:"default",server:"https://app.engati.com",e:"p" });</script>
 </head>
 
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
@@ -105,7 +105,11 @@
                             <br>Мы предлагаем Вам пройти тест, состоящий из вопросов которые определят Ваш психотип личности!
                             <br>После анализа результатов теста Вам будут предложены уроки,которые включают в себя курс,состоящий из теоретических основ и практических заданий
                             <br>Мы поможем Вам выбрать правильный путь</p>
+                        <p id="auth"><a href="Login.html" class="btn-login">Вход</a></p>
+                        <p id="logout"><a href="Login.html" class="btn-login">Выход</a></p>
+                        <p><a href="progress.html" class="btn btn-primary btn-outline-white py-3 px-5">Посмотреть результаты</a></p>
                         <p><a href="test.html" class="btn btn-primary btn-outline-white py-3 px-5">Перейти к тесту</a></p>
+                            <p><a href="employment.html" class="btn btn-primary btn-outline-white py-3 px-5">Трудоустройство</a></p>
                     </div>
                 </div>
             </div>
@@ -117,57 +121,7 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-md-4">
-                    <h2 class="h4 mb-4">О создателях сайта</h2>
-                    <p>Студентки группы 2бАСУ3 Московского автомобильно-дорожного государственного технического университета. </p>
-                    <p>Факультет Управления.<br>
-                        Кафедра Автоматизированные системы управления.</p>
-                </div>
-                <div class="col-md-4">
-                    <img src="images/about_1.jpg" alt="Image" class="img-fluid">
-                </div>
-                <div class="col-md-4">
-
-                    <h2 class="h4 mb-4">Функциональность сайта</h2>
-
-                    <div class="progress-wrap mb-4">
-                        <div class="d-flex">
-                            <span>Производительность</span>
-                            <span class="ml-auto">55%</span>
-                        </div>
-                        <div class="progress rounded-0" style="height: 7px;">
-                            <div class="progress-bar" role="progressbar" style="width: 55%;" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                    </div>
-
-                    <div class="progress-wrap mb-4">
-                        <div class="d-flex">
-                            <span>Дизайн</span>
-                            <span class="ml-auto">85%</span>
-                        </div>
-                        <div class="progress rounded-0" style="height: 7px;">
-                            <div class="progress-bar" role="progressbar" style="width: 85%;" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                    </div>
-
-                    <div class="progress-wrap mb-4">
-                        <div class="d-flex">
-                            <span>Анализ</span>
-                            <span class="ml-auto">93%</span>
-                        </div>
-                        <div class="progress rounded-0" style="height: 7px;">
-                            <div class="progress-bar" role="progressbar" style="width: 93%;" aria-valuenow="93" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                    </div>
-
-                    <div class="progress-wrap mb-4">
-                        <div class="d-flex">
-                            <span>Работоспособность</span>
-                            <span class="ml-auto">83%</span>
-                        </div>
-                        <div class="progress rounded-0" style="height: 7px;">
-                            <div class="progress-bar" role="progressbar" style="width: 83%;" aria-valuenow="83" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                    </div>
+                    <iframe width="1000" height="720" src="https://www.youtube.com/embed/B18Tn4Dbva0" title="2023's Top Strategic Technology Trends | Gartner" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
                 </div>
@@ -219,6 +173,7 @@
                     </div>
 
                 </div>
+
                 <div class="col-lg-4 col-md-6">
 
                     <div>
@@ -230,8 +185,24 @@
                         </blockquote>
                         <p>&mdash; Анастасия Корнева</p>
                     </div>
+
+                </div>
+                <div class="col-lg-4 col-md-6">
+
+                    <div>
+                        <div class="person-pic-39219 mb-4">
+                            <img src="images/person_4.jpg" alt="Image" class="img-fluid">
+                        </div>
+                        <blockquote class="quote_39823">
+                            <p>Разработка чат-бота</p>
+                        </blockquote>
+                        <p>&mdash; Анна Моренко</p>
+                    </div>
                 </div>
             </div>
+
+            </div>
+
         </div>
     </div>
 
@@ -240,7 +211,21 @@
 
 
 </div>
+<script>
+    const user = JSON.parse(localStorage.getItem('user'));
+const auth = document.querySelector('#auth');
+const logout = document.querySelector('#logout');
 
+if(user && user.auth) {
+    auth.style.display = 'none';
+    logout.style.display = 'block';
+} else {
+    auth.style.display = 'block';
+    logout.style.display = 'none';
+}
+
+    logout.onclick = () => localStorage.setItem('user', JSON.stringify({...user, auth: false}))
+</script>
 <script src="js/jquery-3.3.1.min.js"></script>
 <script src="js/jquery-migrate-3.0.0.js"></script>
 <script src="js/popper.min.js"></script>
